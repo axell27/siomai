@@ -19,7 +19,14 @@ namespace siomai
 
         private void button1_Click(object sender, EventArgs e)
         {
+            login loginForm = new login();
+            loginForm.Show();
+        }
 
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            register registerForm = new register();
+            registerForm.Show();
         }
     }
 }

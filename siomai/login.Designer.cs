@@ -71,7 +71,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
+            label1.BackColor = Color.DimGray;
             label1.Font = new Font("Script MT Bold", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.Location = new Point(23, 299);
             label1.Name = "label1";
@@ -82,7 +82,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
+            label2.BackColor = Color.DimGray;
             label2.Font = new Font("Arial Rounded MT Bold", 12.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(386, 93);
             label2.Name = "label2";
@@ -93,7 +93,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
+            label3.BackColor = Color.DimGray;
             label3.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.Location = new Point(379, 162);
             label3.Name = "label3";
@@ -114,13 +114,14 @@
             textBox2.BackColor = SystemColors.MenuBar;
             textBox2.Location = new Point(340, 199);
             textBox2.Name = "textBox2";
+            textBox2.PasswordChar = '*';
             textBox2.Size = new Size(196, 23);
             textBox2.TabIndex = 8;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
+            label4.BackColor = Color.DimGray;
             label4.Location = new Point(340, 252);
             label4.Name = "label4";
             label4.Size = new Size(98, 15);
@@ -130,7 +131,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.BackColor = Color.Transparent;
+            linkLabel1.BackColor = Color.DimGray;
             linkLabel1.LinkColor = Color.White;
             linkLabel1.Location = new Point(434, 252);
             linkLabel1.Name = "linkLabel1";
@@ -142,7 +143,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
+            label5.BackColor = Color.DimGray;
             label5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.Location = new Point(351, 284);
             label5.Name = "label5";
@@ -153,7 +154,7 @@
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
-            linkLabel2.BackColor = Color.Transparent;
+            linkLabel2.BackColor = Color.DimGray;
             linkLabel2.LinkColor = Color.White;
             linkLabel2.Location = new Point(477, 284);
             linkLabel2.Name = "linkLabel2";
@@ -161,10 +162,11 @@
             linkLabel2.TabIndex = 12;
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Register";
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // button1
             // 
-            button1.BackColor = Color.Transparent;
+            button1.BackColor = Color.DimGray;
             button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
             button1.BackgroundImageLayout = ImageLayout.None;
             button1.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -176,6 +178,7 @@
             button1.TabIndex = 13;
             button1.Text = "LOGIN";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // pictureBox4
             // 

@@ -32,9 +32,9 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             label5 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnLogin = new Button();
+            btnRegister = new Button();
+            btnAboutUs = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -72,51 +72,52 @@
             label5.TabIndex = 6;
             label5.Text = "CROWNED WITH FLAVOR";
             // 
-            // button1
+            // btnLogin
             // 
-            button1.BackColor = Color.Transparent;
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.None;
-            button1.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Transparent;
-            button1.ImageKey = "(none)";
-            button1.Location = new Point(468, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(124, 31);
-            button1.TabIndex = 7;
-            button1.Text = "LOGIN";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnLogin.BackColor = Color.Transparent;
+            btnLogin.BackgroundImage = (Image)resources.GetObject("btnLogin.BackgroundImage");
+            btnLogin.BackgroundImageLayout = ImageLayout.None;
+            btnLogin.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.ForeColor = Color.Transparent;
+            btnLogin.ImageKey = "(none)";
+            btnLogin.Location = new Point(468, 12);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(124, 31);
+            btnLogin.TabIndex = 7;
+            btnLogin.Text = "LOGIN";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += button1_Click;
             // 
-            // button2
+            // btnRegister
             // 
-            button2.BackColor = Color.Transparent;
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.None;
-            button2.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.Transparent;
-            button2.ImageKey = "(none)";
-            button2.Location = new Point(607, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(131, 31);
-            button2.TabIndex = 8;
-            button2.Text = "REGISTER";
-            button2.UseVisualStyleBackColor = false;
+            btnRegister.BackColor = Color.Transparent;
+            btnRegister.BackgroundImage = (Image)resources.GetObject("btnRegister.BackgroundImage");
+            btnRegister.BackgroundImageLayout = ImageLayout.None;
+            btnRegister.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRegister.ForeColor = Color.Transparent;
+            btnRegister.ImageKey = "(none)";
+            btnRegister.Location = new Point(607, 12);
+            btnRegister.Name = "btnRegister";
+            btnRegister.Size = new Size(131, 31);
+            btnRegister.TabIndex = 8;
+            btnRegister.Text = "REGISTER";
+            btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegister_Click;
             // 
-            // button3
+            // btnAboutUs
             // 
-            button3.BackColor = Color.Transparent;
-            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
-            button3.BackgroundImageLayout = ImageLayout.None;
-            button3.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Transparent;
-            button3.ImageKey = "(none)";
-            button3.Location = new Point(756, 12);
-            button3.Name = "button3";
-            button3.Size = new Size(129, 31);
-            button3.TabIndex = 9;
-            button3.Text = "ABOUT US";
-            button3.UseVisualStyleBackColor = false;
+            btnAboutUs.BackColor = Color.Transparent;
+            btnAboutUs.BackgroundImage = (Image)resources.GetObject("btnAboutUs.BackgroundImage");
+            btnAboutUs.BackgroundImageLayout = ImageLayout.None;
+            btnAboutUs.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAboutUs.ForeColor = Color.Transparent;
+            btnAboutUs.ImageKey = "(none)";
+            btnAboutUs.Location = new Point(756, 12);
+            btnAboutUs.Name = "btnAboutUs";
+            btnAboutUs.Size = new Size(129, 31);
+            btnAboutUs.TabIndex = 9;
+            btnAboutUs.Text = "ABOUT US";
+            btnAboutUs.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -125,9 +126,9 @@
             BackColor = Color.Gray;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(897, 379);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnAboutUs);
+            Controls.Add(btnRegister);
+            Controls.Add(btnLogin);
             Controls.Add(label5);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
@@ -143,8 +144,8 @@
         private Label label1;
         private PictureBox pictureBox1;
         private Label label5;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnLogin;
+        private Button btnRegister;
+        private Button btnAboutUs;
     }
 }
