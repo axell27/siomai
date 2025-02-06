@@ -34,8 +34,8 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            usernameTextBox = new TextBox();
+            passwordTextBox = new TextBox();
             label4 = new Label();
             linkLabel1 = new LinkLabel();
             label5 = new Label();
@@ -101,22 +101,22 @@
             label3.TabIndex = 6;
             label3.Text = "Password:";
             // 
-            // textBox1
+            // usernameTextBox
             // 
-            textBox1.BackColor = SystemColors.MenuBar;
-            textBox1.Location = new Point(340, 127);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(196, 23);
-            textBox1.TabIndex = 7;
+            usernameTextBox.BackColor = SystemColors.MenuBar;
+            usernameTextBox.Location = new Point(340, 127);
+            usernameTextBox.Name = "usernameTextBox";
+            usernameTextBox.Size = new Size(196, 23);
+            usernameTextBox.TabIndex = 7;
             // 
-            // textBox2
+            // passwordTextBox
             // 
-            textBox2.BackColor = SystemColors.MenuBar;
-            textBox2.Location = new Point(340, 199);
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(196, 23);
-            textBox2.TabIndex = 8;
+            passwordTextBox.BackColor = SystemColors.MenuBar;
+            passwordTextBox.Location = new Point(340, 199);
+            passwordTextBox.Name = "passwordTextBox";
+            passwordTextBox.PasswordChar = '*';
+            passwordTextBox.Size = new Size(196, 23);
+            passwordTextBox.TabIndex = 8;
             // 
             // label4
             // 
@@ -203,8 +203,8 @@
             Controls.Add(label5);
             Controls.Add(linkLabel1);
             Controls.Add(label4);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(passwordTextBox);
+            Controls.Add(usernameTextBox);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -226,8 +226,8 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox usernameTextBox;
+        private TextBox passwordTextBox;
         private Label label4;
         private LinkLabel linkLabel1;
         private Label label5;

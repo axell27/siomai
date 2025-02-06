@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BCrypt.Net;
+using MySql.Data.MySqlClient;
+
 
 namespace siomai
 {
@@ -29,7 +32,63 @@ namespace siomai
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string username = usernameTextBox.Text.Trim();
+            string password = passwordTextBox.Text;
 
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please enter both username and password.");
+                return;
+            }
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    
+                    string query = "SELECT password FROM log WHERE username = @username";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        var result = cmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            string storedHashedPassword = result.ToString();
+
+                            
+                            if (BCrypt.Net.BCrypt.Verify(password, storedHashedPassword))
+                            {
+                                MessageBox.Show("Login Successful!");
+
+                                
+                                this.Hide(); 
+                            }
+                            else
+                            {
+                                MessageBox.Show("Incorrect password. Please try again.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Username not found.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            register registerForm = new register();
+            registerForm.Show();
+            this.Hide(); 
         }
     }
 }
