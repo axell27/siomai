@@ -15,6 +15,7 @@ namespace siomai
     public partial class register : Form
     {
         private string connectionString = "server=127.0.0.1; database=siomai; uid=root; pwd=axell;";
+
         public register()
         {
             InitializeComponent();
@@ -24,6 +25,22 @@ namespace siomai
         {
             login loginForm = new login();
             loginForm.Show();
+        }
+
+        private bool IsPasswordComplex(string password)
+        {
+            if (password.Length < 8)
+                return false;
+            if (!password.Any(char.IsUpper))
+                return false;
+            if (!password.Any(char.IsLower))
+                return false;
+            if (!password.Any(char.IsDigit))
+                return false;
+            if (!password.Any(ch => !char.IsLetterOrDigit(ch)))
+                return false;
+
+            return true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,14 +60,20 @@ namespace siomai
                 MessageBox.Show("Passwords do not match.");
                 return;
             }
-            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password); //hash
+
+            if (!IsPasswordComplex(password))
+            {
+                MessageBox.Show("Password must be at least 8 characters long and contain an uppercase letter, lowercase letter, digit, and special character.");
+                return;
+            }
+
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
 
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-
 
                     string checkQuery = "SELECT COUNT(*) FROM log WHERE username = @username";
                     using (MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn))
@@ -64,7 +87,6 @@ namespace siomai
                             return;
                         }
                     }
-
 
                     string query = "INSERT INTO log (username, password) VALUES (@username, @password)";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
