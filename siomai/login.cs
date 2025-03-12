@@ -47,7 +47,7 @@ namespace siomai
                 {
                     conn.Open();
 
-                    
+
                     string query = "SELECT password FROM log WHERE username = @username";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -58,13 +58,13 @@ namespace siomai
                         {
                             string storedHashedPassword = result.ToString();
 
-                            
+
                             if (BCrypt.Net.BCrypt.Verify(password, storedHashedPassword))
                             {
                                 MessageBox.Show("Login Successful!");
 
-                                
-                                this.Hide(); 
+
+                                this.Hide();
                             }
                             else
                             {
@@ -82,13 +82,21 @@ namespace siomai
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+            
         }
 
         private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             register registerForm = new register();
             registerForm.Show();
-            this.Hide(); 
+            this.Hide();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            forgot forgotForm = new forgot ();
+            forgotForm.Show();
+            this.Hide();
         }
     }
 }

@@ -19,6 +19,18 @@ namespace siomai
         public register()
         {
             InitializeComponent();
+            register_Load(this, EventArgs.Empty); // Ensure questions are loaded
+        }
+
+        private void register_Load(object sender, EventArgs e)
+        {
+            // Add security questions to the ComboBox
+            securityQuestionComboBox.Items.Add("What is your pet's name?");
+            securityQuestionComboBox.Items.Add("What is your mother's maiden name?");
+            securityQuestionComboBox.Items.Add("What city were you born in?");
+
+            // Set default selection
+            securityQuestionComboBox.SelectedIndex = 0;
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -48,10 +60,12 @@ namespace siomai
             string username = usernameTextBox.Text;
             string password = passwordTextBox.Text;
             string confirmPassword = confirmPasswordTextBox.Text;
+            string securityQuestion = securityQuestionComboBox.SelectedItem?.ToString();
+            string securityAnswer = securityAnswerTextBox.Text;
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(securityAnswer))
             {
-                MessageBox.Show("Please fill in both username and password.");
+                MessageBox.Show("Please fill in all fields.");
                 return;
             }
 
@@ -68,6 +82,7 @@ namespace siomai
             }
 
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+            string hashedSecurityAnswer = BCrypt.Net.BCrypt.HashPassword(securityAnswer);
 
             try
             {
@@ -88,11 +103,13 @@ namespace siomai
                         }
                     }
 
-                    string query = "INSERT INTO log (username, password) VALUES (@username, @password)";
+                    string query = "INSERT INTO log (username, password, security_question, security_answer) VALUES (@username, @password, @security_question, @security_answer)";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters.AddWithValue("@password", hashedPassword);
+                        cmd.Parameters.AddWithValue("@security_question", securityQuestion);
+                        cmd.Parameters.AddWithValue("@security_answer", hashedSecurityAnswer);
 
                         int result = cmd.ExecuteNonQuery();
 

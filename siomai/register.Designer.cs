@@ -40,6 +40,10 @@
             label4 = new Label();
             registerButton = new Button();
             linkLabel2 = new LinkLabel();
+            securityQuestionComboBox = new ComboBox();
+            securityAnswerTextBox = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
@@ -49,7 +53,8 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(291, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(234, 334);
+            pictureBox1.Size = new Size(430, 334);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -165,12 +170,55 @@
             linkLabel2.Text = "Login";
             linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
+            // securityQuestionComboBox
+            // 
+            securityQuestionComboBox.FormattingEnabled = true;
+            securityQuestionComboBox.Location = new Point(540, 112);
+            securityQuestionComboBox.Name = "securityQuestionComboBox";
+            securityQuestionComboBox.Size = new Size(168, 23);
+            securityQuestionComboBox.TabIndex = 25;
+            // 
+            // securityAnswerTextBox
+            // 
+            securityAnswerTextBox.Location = new Point(540, 186);
+            securityAnswerTextBox.Name = "securityAnswerTextBox";
+            securityAnswerTextBox.Size = new Size(168, 23);
+            securityAnswerTextBox.TabIndex = 26;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ButtonFace;
+            label5.Location = new Point(562, 83);
+            label5.Name = "label5";
+            label5.Size = new Size(125, 15);
+            label5.TabIndex = 27;
+            label5.Text = "SECURITY QUESTION";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Black;
+            label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.ButtonFace;
+            label6.Location = new Point(562, 157);
+            label6.Name = "label6";
+            label6.Size = new Size(125, 17);
+            label6.TabIndex = 28;
+            label6.Text = "SECURITY ANSWER";
+            // 
             // register
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(537, 358);
+            ClientSize = new Size(720, 358);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(securityAnswerTextBox);
+            Controls.Add(securityQuestionComboBox);
             Controls.Add(linkLabel2);
             Controls.Add(registerButton);
             Controls.Add(label4);
@@ -203,5 +251,9 @@
         private Label label4;
         private Button registerButton;
         private LinkLabel linkLabel2;
+        private ComboBox securityQuestionComboBox;
+        private TextBox securityAnswerTextBox;
+        private Label label5;
+        private Label label6;
     }
 }
