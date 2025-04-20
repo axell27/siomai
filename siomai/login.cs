@@ -41,12 +41,21 @@ namespace siomai
                 return;
             }
 
+            // Check if admin login
+            if (username == "admin" && password == "admin123")
+            {
+                MessageBox.Show("Admin Login Successful!");
+                AdminMenuForm adminForm = new AdminMenuForm();
+                adminForm.Show();
+                this.Hide();
+                return;
+            }
+
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-
 
                     string query = "SELECT password FROM log WHERE username = @username";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -58,12 +67,13 @@ namespace siomai
                         {
                             string storedHashedPassword = result.ToString();
 
-
                             if (BCrypt.Net.BCrypt.Verify(password, storedHashedPassword))
                             {
                                 MessageBox.Show("Login Successful!");
 
-
+                                // Open order form after successful login
+                                orderForm orderFormInstance = new orderForm();
+                                orderFormInstance.Show();
                                 this.Hide();
                             }
                             else
@@ -82,8 +92,9 @@ namespace siomai
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            
         }
+
+
 
         private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

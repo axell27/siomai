@@ -177,6 +177,7 @@
             securityQuestionComboBox.Name = "securityQuestionComboBox";
             securityQuestionComboBox.Size = new Size(168, 23);
             securityQuestionComboBox.TabIndex = 25;
+            securityQuestionComboBox.SelectedIndexChanged += securityQuestionComboBox_SelectedIndexChanged;
             // 
             // securityAnswerTextBox
             // 

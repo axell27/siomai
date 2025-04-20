@@ -130,5 +130,10 @@ namespace siomai
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        private void securityQuestionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
