@@ -36,6 +36,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // txtName
@@ -109,12 +110,23 @@
             label3.TabIndex = 8;
             label3.Text = "SIOMAI KING BACKROOMS";
             // 
+            // button1
+            // 
+            button1.Location = new Point(12, 402);
+            button1.Name = "button1";
+            button1.Size = new Size(116, 36);
+            button1.TabIndex = 9;
+            button1.Text = "View Transactions";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // AdminMenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -139,5 +151,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button button1;
     }
 }

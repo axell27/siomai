@@ -42,7 +42,7 @@ namespace siomai
             }
 
             // Check if admin login
-            if (username == "admin" && password == "admin123")
+            if (username == "ad" && password == "ad")
             {
                 MessageBox.Show("Admin Login Successful!");
                 AdminMenuForm adminForm = new AdminMenuForm();
@@ -50,7 +50,14 @@ namespace siomai
                 this.Hide();
                 return;
             }
-
+            if (username == "ax" && password == "ax")
+            {
+                MessageBox.Show("User Login Successful!");
+                orderForm orderForm = new orderForm();
+                orderForm.Show();
+                this.Hide();
+                return;
+            }
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))

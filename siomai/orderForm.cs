@@ -102,8 +102,32 @@ namespace siomai
                 return;
             }
 
-            // Display order confirmation
-            MessageBox.Show("Order Placed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string connStr = "server=127.0.0.1; database=siomai; uid=root; pwd=axell;";
+            using (MySqlConnection conn = new MySqlConnection(connStr))
+            {
+                try
+                {
+                    conn.Open();
+                    foreach (var item in selectedOrderItems)
+                    {
+                        string query = "INSERT INTO transactions (item_name, quantity, total_price) VALUES (@item, @qty, @price)";
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@item", item.Name);
+                            cmd.Parameters.AddWithValue("@qty", item.Quantity);
+                            cmd.Parameters.AddWithValue("@price", item.Price * item.Quantity);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Order placed!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed to save order: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
 
             // Clear the order list after placing order
             selectedOrderItems.Clear();
