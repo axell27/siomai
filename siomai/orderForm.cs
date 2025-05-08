@@ -116,6 +116,7 @@ namespace siomai
                             cmd.Parameters.AddWithValue("@item", item.Name);
                             cmd.Parameters.AddWithValue("@qty", item.Quantity);
                             cmd.Parameters.AddWithValue("@price", item.Price * item.Quantity);
+
                             cmd.ExecuteNonQuery();
                         }
                     }
